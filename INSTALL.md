@@ -30,9 +30,9 @@ Installing and opening Vibe does not change your default launcher.
 
 To return to the original launcher, open **Settings → About → Use original launcher**. If Android asks you to choose, select **HTCLauncherEN** and confirm. The original launcher remains installed.
 
-## Optional Quick Wake
+## Optional Sleep Mode
 
-On supported firmware, **Settings → Quick Wake** lets the remote’s Power button sleep and wake the projector. See the [one-time ADB setup](boot-tune/README.md) to enable the switch.
+On supported firmware, select **Settings → Sleep Mode** to start the idle screen-off mode. Press the remote’s Power button to return to Vibe. [Sleep Mode guide](boot-tune/README.md)
 
 ## Updates and checksums
 

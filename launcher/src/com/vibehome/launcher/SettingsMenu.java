@@ -6,6 +6,9 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Color;
 import android.provider.Settings;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -67,7 +70,12 @@ final class SettingsMenu {
         LinearLayout.LayoutParams line = new LinearLayout.LayoutParams(-1, dp(1));
         line.setMargins(dp(12), dp(5), dp(12), dp(5));
         rows.addView(divider, line);
-        addRow(rows, anchor, "Quick Wake", R.drawable.ic_menu_power, openQuickWake);
+        String quickWakeTitle = activity.getString(R.string.quick_wake_title);
+        SpannableString quickWakeLabel = new SpannableString(quickWakeTitle + "\n"
+                + activity.getString(R.string.quick_wake_summary));
+        quickWakeLabel.setSpan(new RelativeSizeSpan(0.8f), quickWakeTitle.length() + 1,
+                quickWakeLabel.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        addRow(rows, anchor, quickWakeLabel, R.drawable.ic_menu_power, openQuickWake);
         addRow(rows, anchor, "About", R.drawable.ic_menu_info, openAbout);
 
         window.showAsDropDown(anchor, 0, dp(8), Gravity.END);
@@ -78,7 +86,7 @@ final class SettingsMenu {
         });
     }
 
-    private void addRow(LinearLayout rows, View anchor, String title, int icon, Runnable action) {
+    private void addRow(LinearLayout rows, View anchor, CharSequence title, int icon, Runnable action) {
         TextView row = new TextView(activity);
         row.setText(title);
         row.setTextSize(15);

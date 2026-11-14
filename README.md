@@ -50,11 +50,21 @@ The following developer instructions build a locally signed APK and install it w
 
    ```sh
    projector=192.168.1.50:5555
+   adb start-server
    adb connect "$projector"
    adb devices -l
    ```
 
    Check that your projector is listed as `device` before proceeding. For a USB ADB connection, set `projector` to the serial shown by `adb devices -l` and skip `adb connect`.
+
+   If ADB unexpectedly has trouble connecting, reset the ADB server and reconnect:
+
+   ```sh
+   adb kill-server
+   adb start-server
+   adb connect "$projector"
+   adb devices -l
+   ```
 
 4. **Install and open Vibe Home.**
 

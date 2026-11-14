@@ -1,0 +1,4 @@
+<resources>
+    <string name="quick_wake_title">Sleep Mode</string>
+    <string name="quick_wake_summary">Save energy and wake quickly</string>
+</resources>
